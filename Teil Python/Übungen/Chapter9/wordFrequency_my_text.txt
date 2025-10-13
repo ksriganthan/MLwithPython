@@ -1,0 +1,9 @@
+Python : 3
+ist : 1
+eine : 1
+sehr : 1
+einfache : 1
+Sprache : 2
+Ist : 1
+Java : 2
+Kotlin : 3
