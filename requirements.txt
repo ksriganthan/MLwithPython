@@ -1,4 +1,6 @@
+pandas
 deep-translator
 sympy~=1.14.0
 panda
+matplotlib
 

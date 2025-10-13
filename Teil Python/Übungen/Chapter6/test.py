@@ -1,5 +1,5 @@
 
-file_object = open("test.txt","r")
+file_object = open("test.txt", "r")
 file_object2 = open("test.txt", "a")
 
 firstLineReached = False
