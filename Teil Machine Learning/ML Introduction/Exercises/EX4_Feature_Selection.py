@@ -35,12 +35,16 @@ X.shape # (100, 60)
 # 'fs.f_classif' ist der ANOVA F-value. Es misst die Stärke der Beziehung zwischen dem Feature und dem Target
 # k = 15 (von 60 auf 15 reduzieren)
 kb = fs.SelectKBest(score_func=fs.f_classif, k = 15)
+# ANOVA F-Value misst pro Spalte(Feature) Durschnitt je Klassen. Falls die Mittelwerte sicher stark unterscheiden,
+# heisst es, dass dieses Feature die Klassen gut trennt. Es berechnet (Unterschied der Mittelwerte / Varianz der Klassen)
+# Unterscheidet sich das Feature signifikant zwischen den Zielklassen? - Also wie stark unterscheiden sich der Mittelwert
+# der beiden Klassen innerhalb eines Features
 
 # 2. Fit
-# Hier lernt der Algorithmus, welche Features gut mit y korrelieren anhand dem F-Value (Q-Metrik)
+# Hier lernt der Algorithmus, welche Features gut mit y siginifikant übereinstimmen anhand dem F-Value (Q-Metrik)
 # Die Wichtigkeit (Scores) zu jedem Feature wird im kb gespeichert
 kb.fit(X, y)
-kb.scores_ # Die berechneten Scores zur Q-Metrik - Je höher der F-Wert, desto stärker die Beziehung
+kb.scores_ # Die berechneten Scores zur Q-Metrik - Je höher der F-Wert, desto stärker die Beziehung (Ein Wert pro Feature)
 
 # 3. Transform
 # Hier wird nur X gebraucht, um die k-besten Features auszuwählen
@@ -74,7 +78,7 @@ X_kb.shape # (100, 15)
 # n_neighbors = 1 (wir verwenden 1 Nachbar für die Klassifkation)
 knn = nb.KNeighborsClassifier(n_neighbors=1)
 # In den Trainingsset entscheidet der Algorithmus anhand 1 Nachbar (also Mehrheit gewinnt)
-# Welche Klasse die aktuelle Zeile angehört -> sehr nervös und kann die Recognition-Rate verschlechtern
+# welche Klasse die aktuelle Zeile angehört -> sehr nervös und kann die Recognition-Rate verschlechtern
 # KNN ist ein Lazy-Learner - er behält alle Trainingsdaten
 
 
