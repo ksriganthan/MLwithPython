@@ -16,8 +16,9 @@ def max(nums):
 
     return highestValue
 
-max(nums)
 
 highestNum = max(nums)
 
 print(f"The highest value is: {highestNum}")
+
+

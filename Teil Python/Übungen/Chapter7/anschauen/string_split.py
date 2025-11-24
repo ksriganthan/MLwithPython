@@ -6,7 +6,7 @@ def main():
 
    # Split the string.
    word_list = my_string.split()
-   print(type(word_list))
+   print(type(word_list)) #Nach Split gibt es eine Liste!
 
    # Print the list of words.
    print(word_list)

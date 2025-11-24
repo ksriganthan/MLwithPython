@@ -3,7 +3,7 @@ try:
         lines = 0
         _sum = 0
         for line in file:
-            lines = lines + 1
+            lines += 1
             _sum += len(line.split())
 
     print(_sum / lines)

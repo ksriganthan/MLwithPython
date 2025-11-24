@@ -13,5 +13,7 @@ def reverse_name(first, last):
 
 
 # Call the main function.
-main()
+main() # Hier würde das Skript beim Importieren direkt ausgeführt
+
+
 

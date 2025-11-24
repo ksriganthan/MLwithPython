@@ -49,7 +49,7 @@ except json.JSONDecodeError as e:
 
 ########################################################################
 #Umwandlung JSON -> DICT mit (json.load()/json.loads(file)
-#JSON string mit mehreren Objekten
+#JSON String mit mehreren Objekten
 
 employees_string = '''
 {

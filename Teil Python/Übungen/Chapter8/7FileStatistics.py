@@ -7,13 +7,13 @@ with open("text.txt", "r") as file:
     for line in file:
         for char in line:
             if char.isupper():
-                upperCase = upperCase +1
+                upperCase +=1
             if char.islower():
-                LowerCase = LowerCase + 1
+                LowerCase += 1
             if char.isdigit():
-                digit = digit + 1
+                digit += 1
             if char.isspace():
-                space = space + 1
+                space += 1
 
     dict_ = {}
     dict_["UpperCase"] = upperCase

@@ -11,3 +11,5 @@ if number > 1:
 
 else:
     print(number, "is NOT a prime number.")
+
+

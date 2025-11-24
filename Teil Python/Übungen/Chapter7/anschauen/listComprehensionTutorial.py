@@ -24,3 +24,5 @@ woerter = ["Apfel", "Banane", "Kiwi", "Pfirsich"]
 
 kurze = [w.upper() for w in woerter if len(w) <= 5]
 print(kurze)
+
+

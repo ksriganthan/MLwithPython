@@ -1,7 +1,6 @@
 from deep_translator import GoogleTranslator
 
 def translation(string):
-
     return GoogleTranslator(source="auto", target="en").translate(string)
 
 text = input("Please enter an arbitrary text for translation (stop to terminate): ")

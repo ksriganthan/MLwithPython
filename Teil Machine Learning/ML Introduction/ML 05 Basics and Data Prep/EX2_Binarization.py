@@ -34,7 +34,7 @@ dataBina.info()
 dataBina.head()
 # Jetzt wird True oder False für alle kategorischen Spalten angezeigt
 # Es wurden mehrere Spalten mit Spaltenname_1, Spaltenname_2 ... erstellt
-# Und die Zeile welche den passenden Feature-Wert hat, hat dort eine 1, alle anderen Spalten haben eine 0
+# Und die Zeile, welche den passenden Feature-Wert hat, hat dort eine 1, alle anderen Spalten haben eine 0 (oder True/False)
 
 
 # 3. Was passiert mit numerischen Variablen beim Aufruf von get_dummies()?
@@ -55,7 +55,7 @@ print(data['gender'].unique()) # [' Male' ' Female']
 
 # 6. Was ist der Unterschied zwischen dem ursprünglichen und dem binarisierten DataFrame?
 # Der ursprüngliche DataFrame enthält die kategoriale Variable als mehrere Spalten je Kategorie-Inhalt.
-# Der binarisierte DataFrame enthält mehrere Spalten, eine für jede Kategorie, mit binären Werten (0 oder 1), die anzeigen,
+# Der binarisierte DataFrame enthält mehrere Spalten, eine für jede Kategorie-Ausprägung, mit binären Werten (0 oder 1), die anzeigen,
 # ob die jeweilige Kategorie für jede Beobachtung zutrifft.
 print(data.head())
 print(dataBina.head())

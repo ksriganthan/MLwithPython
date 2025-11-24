@@ -9,4 +9,3 @@ for word in words:
     newWord = newWord +  word[0] + "."
 
 print(newWord)
-

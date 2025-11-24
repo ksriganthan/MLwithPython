@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 #DataFrame aus CSV-File laden
-data = pd.read_csv("./Teil Machine Learning/ML Introduction/Exercises/winequality-red.csv", sep=';')
+data = pd.read_csv("./Teil Machine Learning/Data/winequality-red.csv", sep=';')
 
 #Alle Spalten anzeigen
 print(data.columns.tolist())
@@ -16,7 +16,7 @@ print(data.head())
 # 3. Macht das in Real-World Sinn?
 data.info()  # Alle sind floats ausser quality
 
-#Was für Werte kann quality (Target-Feature) haben?
+#Was für Werte (Classes/Labels) kann quality (Target-Feature) haben?
 print(data['quality'].unique()) #(5, 6, 7, 8, 9)
 
 
@@ -34,7 +34,7 @@ pd.set_option('display.max_columns', None)
 
 
 # Erstellen Sie Histogramme für die numerischen Merkmale.
-# .hist() -> erstellt für jede nummerische Spalte einen Histogramm
+# .hist() -> erstellt für jede nummerische Spalte eine Histogramm
 # bins=30 -> 30 Säulen
 # figsize ->  sorgt für bessere visuelle Darstellung
 # plt.tight_layout() -> sorgt dafür dass die Säulen nicht überlappen
@@ -42,7 +42,7 @@ pd.set_option('display.max_columns', None)
 data.hist(bins=30, figsize=(12,10))
 plt.tight_layout()
 plt.show()
-# Die meisten Histogramme sind rechtsschief, das bedeutet der Mittelwert ist grösser als der Median
+# Die meisten Histogramme sind rechtsschief, das bedeutet die einzelnen Mittelwerte sind grösser als der Median
 data['total sulfur dioxide'].describe()  # Siehe hier: Median ist kleiner als der Mittelwert, Verteilung ist rechtsschief
 # Ph ist normalverteilt
 

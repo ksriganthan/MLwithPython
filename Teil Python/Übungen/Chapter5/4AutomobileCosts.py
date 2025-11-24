@@ -1,7 +1,7 @@
 userInput = input("Enter the monthly costs for the following expenses incurred from operating from your automobile (seperated with a komma): \n")
-parts = userInput.split(",")
+parts = userInput.split(",") # A B C ...
 
-def autoMobileCosts(*strings):
+def autoMobileCosts(*strings): #Bedeutet mehrere Strings
     sum = 0.0
     for c in strings:
         sum += float(c)

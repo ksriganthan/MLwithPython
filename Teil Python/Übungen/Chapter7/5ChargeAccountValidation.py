@@ -5,6 +5,7 @@ def main():
     file_object.close()
 
     my_List = file.split("\n")
+
     inputNum = input("Enter the account number: ")
 
     if inputNum in my_List:
@@ -15,3 +16,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

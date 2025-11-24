@@ -7,8 +7,9 @@ def main():
 
 
 def sum(*, a, b, c, d): #Nach * müssen alle Parameter benannt werden
-    return a + b + c + d
+    return a + b + c + d # 2 + 1 + 3 + 4
 
 
-if __name__ == '__main__':
-    main()
+if __name__ == '__main__': # Führt diesen Code nur aus, wenn das Skript direkt gestartet wird
+    main() # und nicht beim Importieren
+

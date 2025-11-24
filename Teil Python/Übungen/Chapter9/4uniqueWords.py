@@ -7,3 +7,4 @@ with open("my_text.txt", "r") as file:
             set_.add(word)
 
     print(set_)
+

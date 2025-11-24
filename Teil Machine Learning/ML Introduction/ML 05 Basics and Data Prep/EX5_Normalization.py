@@ -17,7 +17,7 @@ type(iris)
 # Ein bunch ist eine Subclass von Dictionary. Charakteristiken:
 # Dictionary-like: Man kann Key-Value-Paare speichern, ähnlich wie beim Dictionary
 # Attribute Access: Man kann auf die Attribute zugreifen mit dot notation (z.B. bunch.key)
-# Man kann auch üblich wie bei Dictionary: bunch['key]
+# Man kann auch üblich wie bei Dictionary: bunch['key']
 
 # Die Keys anschauen von iris bunch
 iris.keys()
@@ -30,10 +30,10 @@ print(iris.data)
 type(iris.data)
 
 # Der Key 'target' speichert die Target-Variable als ein Numpy-Array
-print(iris.target) # Klassen: 0,1,2
+print(iris.target) # Klassen: 0,1,2 -> ist eine Spalte und nicht eine Zeile
 type(iris.target)
 
-# Der Key 'feature_names' speichert die Namen der Features als eine Liste
+# Der Key 'feature_names' speichert die Namen der Features als eine Liste (Input Feature)
 print(iris['feature_names'])
 type(iris.feature_names)
 
@@ -68,6 +68,9 @@ X_min_max = min_max.transform(X)
 ##### Mu-Sigma Methode: Standardisierung
 # Wird vorallem verwendet, um alle Features gleich zu gewichten (damit nicht ein Feature zu hohes Gewicht hat)
 # Ist robuster gegenüber Ausreisser
+# Wird verwendet, wenn man keine Grenzen haben möchte
+# Wenn die Standardabweichung hoch ist, ist die Verteilung tiefer und breiter
+# Wenn die Standardabweichung tief ist, ist die Verteilung höher und tiefer
 
 # Auch hier wird der "initialize-fit-transform" Prozess verwendet
 
@@ -94,7 +97,7 @@ type(X_mu_sigma) #numpy.ndarray
 # Wir nehmen die Column-Labels von iris.feature_names
 X_df = pd.DataFrame(X, columns=iris.feature_names)
 
-# Das gleichen machen wir für die transformierten Daten
+# Das gleiche machen wir für die transformierten Daten
 X_min_max_df = pd.DataFrame(X_min_max, columns=iris.feature_names)
 X_mu_sigma_df = pd.DataFrame(X_mu_sigma, columns=iris.feature_names)
 
@@ -102,23 +105,25 @@ X_mu_sigma_df = pd.DataFrame(X_mu_sigma, columns=iris.feature_names)
 X_df.describe()
 X_min_max_df.describe() # min = 0 und max = 1
 X_mu_sigma_df.describe() # mean = 0 und std = 1
+# mean ist nicht ganz Null aufgrund der Kommaspeicherung der Zahlen in Datentypen
+
 
 # Wir können auch ein Scatterpolot erstellen, um die Resultate visuell zu sehen
 
 # Plotten beinhaltet 2 Schritte:
 # 1. Erstelle Plot im Hintergrund
-# Rendere den Plot um es anzuzeigen (render = sichtbar machen)
+# Rendere den Plot um ihn anzuzeigen (render = sichtbar machen)
 
 # 1. Erstelle den Plot
 # Die 'Plot' Methode in Pandas plottet direkt von DataFrames
-# - kind='scatter' erstellt ein Scatterpolot
+# - kind='scatter' erstellt ein Scatterplot
 # Wir können jedes Paar von Input-Features anschauen - wie nehmen 'petal length' vs 'petal width'
 # x='petal length (cm)'
 # y='petal width (cm)'
 plot_X = X_df.plot(x='petal length (cm)', y='petal width (cm)', kind='scatter')
 # Wir setten die Achsenabschnitte vom Plot auf die gleiche Länge, damit wir die Skalendifferenzen
 # von den Features sehen können
-plot_X.set_xlim(0,10)
+plot_X.set_xlim(0,10) #Wilke fragen todo
 plot_X.set_ylim(0,10)
 
 # 2. Den Plot rendern
@@ -130,8 +135,6 @@ plt.show(block=True)
 
 # Jetzt schauen wir uns die skalierten Daten an
 plot_X = X_min_max_df.plot(x='petal length (cm)', y='petal width (cm)', kind='scatter')
-plot_X.set_xlim(0, 10)
-plot_X.set_ylim(0, 10)
 plt.show(block=True)
 
 plot_X = X_mu_sigma_df.plot(x='petal length (cm)', y='petal width (cm)', kind='scatter')

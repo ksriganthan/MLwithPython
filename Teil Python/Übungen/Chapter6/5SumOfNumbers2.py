@@ -15,8 +15,9 @@ def main():
     except ValueError:
         print("Error data type")
     except:
-        print("Error") #Zum Beispiel wenn ich Buchstabe teilen möchten
+        print("Error") #Fallback
 
 
 if __name__ == "__main__":
     main()
+
