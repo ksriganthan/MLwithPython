@@ -45,7 +45,6 @@ X = iris.data
 
 
 ##### 0-1 Normalization
-# Wird vorallem verwendet, wenn die Daten nicht normalverteilt und schief sind
 
 # Wir verwenden den MinMaxScaler() von preprocessing module von sklearn
 # Auch hier verwenden wir den "initialize-fit-transform" Prozess

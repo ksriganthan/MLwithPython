@@ -1,7 +1,6 @@
 
 def main():
     file_object = open("numbers.txt", "r")
-    content = ""
 
     content = file_object.read()
 

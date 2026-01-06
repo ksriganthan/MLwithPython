@@ -142,7 +142,7 @@ for col in num_data_12_efb_cat.columns:
 
 # 3. Warum wird der Output von KBinsDiscretizer in Strings umgewandelt, bevor es in einen DataFrame zurückgeschrieben wird?
 # Weil die Bins als Intervalle dargestellt werden und es einfacher ist, diese Intervalle als Strings zu interpretieren und zu analysieren.
-# Die Bins bekommen numersiche Bezeichnungen -> sind dann nummerisch
+# Die Bins bekommen nummerische Bezeichnungen -> sind dann nummerisch
 # ndarray wird danach wieder in DataFrame umgewandelt.
 
 # 4. Was macht die Methode .fit() bei KBinsDiscretizer?

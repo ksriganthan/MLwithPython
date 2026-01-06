@@ -6,7 +6,7 @@ print(person["age"])
 #Set ist an sich nicht sortiert
 sett = {"Kapi","Sushana","Karim", "Loic", "Nuria"}
 s = sorted(sett)
-print(s)
+print(type(s))
 
 # Dictionary
 # ist ordered -> So wie man es erstellt hat

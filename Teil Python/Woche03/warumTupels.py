@@ -11,7 +11,7 @@
 #Bei String-Objekt wenn man einen neuen Wert zuordnet, dann wird das alte zerstört und einen neuen erstellt
 
 
-#Hier kann man noch 1 Value frei nochhinzufügen
+#Hier kann man noch 1 Value frei noch hinzufügen
 tup5 = (50,)
 
 #Tupel ändern

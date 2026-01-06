@@ -44,7 +44,7 @@ X_train, X_test, y_train, y_test = ms.train_test_split(X, y, test_size=0.25, ran
 #       - random_state=0. To obtain a deterministic behaviour during fitting, `random_state` has to be fixed to an integer.
 #   DecisionTreeClassifier nicht Regression!
 clf = tree.DecisionTreeClassifier(criterion='gini', random_state=0) # Diese Algos haben oft bei Exceptions (z.B. Ties oder Nicht-Pure) Randomizer drin
-# Random-State = 0 stellt sicher, dass es beim Bauen des Modells, immer der gleiche Seed verwendet wird für die Vergleichbarkeit
+# Random-State = 0 stellt sicher, dass es beim Bauen des Modells, immer der gleiche Seed für die Vergleichbarkeit verwendet wird
 # Kann auch eine andere Zahl sein als 0 -> Hauptsache eine fixe Zahl, die für Reproduzierbarkeit sorgt
 #
 #
@@ -55,7 +55,7 @@ clf = tree.DecisionTreeClassifier(criterion='gini', random_state=0) # Diese Algo
 #
 #       Nimmt dann diese eine bestimmte Reihenfolge von Features, die für den grössten Impurity-Decrease
 #       (Angefangen bei Root-Node: von jeweiligen Parent-Node bis Child Node) sorgt
-#       Lernt hier wie man an sich splitten und z.B. um overfitting zu vermeiden: wann man aufhört
+#       Lernt hier wie man an sich splittet und z.B. um overfitting zu vermeiden -> wann man aufhört
 model = clf.fit(X_train, y_train)
 #
 #   2. (Transform /) Predict
@@ -80,7 +80,7 @@ test_pred = model.predict(X_test)
 print("Unpruned tree:")
 print("Accuracy on training set:",  model.score(X_train, y_train)) # 100%, da das Model auf dieselben Daten trainiert wurden (Overfitting)
 print("Accuracy on test set:", model.score(X_test, y_test))
-#       Notice:
+#       WICHTIG:
 #       - model.score(X_train, y_train) internally calls the function model.predict(X_train) to produce the predicted class
 #         values. (Same for the test set!)
 #       - It then compares the predicted class values to the actual class values to calculate the Recognition Rate.
@@ -92,14 +92,14 @@ print("Accuracy on test set:", model.score(X_test, y_test))
 #       We see that the accuracy on the training set is 100%.
 #           - The reason is that we did not prune the tree: we let it grow all the way down without a stop criterion.
 #           - The algorithm only stopped the splitting when the leave nodes on the training set where 100% pure (no mixed classes).
-#       The accuracy on the test set in is smaller (about 98%).
+#       The accuracy on the test set is smaller (about 98%).
 #           - The reason is that the test set contains data objects that the tree did not 'see' while splitting.
 #           - Thus, it could not take them into account when
 #       This is a strong indication that our tree is OVERFITTING the training data! (See introductory lecture.)
 
 #       Todo: Gwen fragen
 #       Training und Test Data kommen aus derselben Verteilung, also sie haben verhältnismässig gleich viele Datensätze je Target Class Label
-#       Wahrscheinlichkeit besteht, dass die Regeln sehr gut zu den Test Daten passen -> deshalb so hohe Accuracy
+#       Wahrscheinlichkeit besteht, dass die Regeln sehr gut zu den Test Daten passen -> deshalb so hohe Accuracy bei Test Set
 
 # Visualize the tree
 #       1.  To create a new figure use pyplot.figure() from matplotlib.
@@ -109,24 +109,23 @@ fig = plt.figure(figsize=(10,7))
 #           To do that use tree.plot_tree() from sklearn.
 #           It is specifically designed to visualize the output of tree.DecisionTreeClassifier()
 tree.plot_tree(model,
-          feature_names=iris.feature_names,
-          class_names=iris.target_names,
-          rounded=True, # Rounded node edges
-          filled=True, # Adds color according to class
-          proportion=True); # Displays the proportions of class samples instead of the whole number of samples
+               feature_names=iris.feature_names,
+               class_names=iris.target_names,
+               rounded=True, # Rounded node edges
+               filled=True, # Adds color according to class
+               proportion=False); # Displays the proportions of class samples instead of the whole number of samples
 #       3.  Render the populated figure.
 #           It opens a window with the visual representation of the figure.
 #           If you use an interactive backend for matplotlib, such as 'Qt5Agg', you can interact with the plot.
 plt.show()
 
-
 # What can we see in the plot?
 #
-#       - In the intermediate nodes, the first line gives the split criterion (e.g., 'petal width (cm) <=0.8' ).
-#         Notice that the leaf nodes on the bottom don't have a split criterion, since they are not split any more.
+#       - In the intermediate nodes, the first line gives the split criterion (e.g., 'petal width (cm) <= 0.8').
+#         Notice that the leaf nodes on the bottom don't have a split criterion, since they are not split anymore.
 #       - The gini index gives the node purity. The gini index of the leaf nodes is 0.0, which indicates that they are pure.
 #       - 'samples = ...' gives the relative sample size after the split.
-#       - The vector 'values' contains the percentages samples of each class (we have 3 classes here).
+#       - The vector 'values' contains the percentages/numbers of samples of each class (we have 3 classes here).
 #         Notice that, in the leaf nodes, only one element of 'values' is 1.0, the two others are always 0.0.
 #       - 'class = ...' tells us the majority class in the node.
 
@@ -175,9 +174,9 @@ print("")
 # Stopping the splitting early has led to a lower training accuracy.
 # The test accuracy usually improves (gets higher). -> Normalerweise müsste der Test Accuracy besser sein, als vorhin
 # Yet, since our test set is extremely small, the test accuracy can also be lower than before. -> Kann passieren, da Test Set sehr klein ist
-# Es ist abhängig davon, was für Datenobjekte und wie viele verwendet wurden.
+# Es ist abhängig davon, was für Datenobjekte und wie viele davon verwendet wurden.
 # Wichtig: Die ML-Algorithmus Resultate sind Statistische Repräsentationen und arbeiten mit Durchschnitte und mit der Voraussetzung,
-# dass die Samples gross sind, um stabil zu sein!
+# dass die Samples gross genug sind, um stabil zu sein!
 
 # Visualize the tree
 fig = plt.figure(figsize=(8,6))
@@ -186,7 +185,7 @@ tree.plot_tree(model_pruned,
           class_names=iris.target_names,
           rounded=True, # Rounded node edges
           filled=True, # Adds color according to class
-          proportion=True); # Displays the proportions of class samples instead of the whole number of samples
+          proportion=False); # Displays the proportions of class samples instead of the whole number of samples
 plt.show()
 
 # What can we see in the plot?
@@ -231,17 +230,17 @@ print("Test accuracy:", highest_test_accuracy)
 # Hätte man hier noch das beste Modell genommen und noch auf ein Validation Set geprüft -> Model Evaluation with HPO
 
 # What can we see in the output?
-#   - The training accuracy increases with increasing flexibility. -> Desto mehr Split, desto höher die Accuracy
-#   - The test accuracy increases with flexibility, and then stabilizes at depth 4. -> Steigert bis es nur noch stagniert
+#   - The training accuracy increases with increasing flexibility. -> Desto mehr Splits, desto höher die Accuracy
+#   - The test accuracy increases with flexibility, and then stabilizes at depth 4. -> Steigert bis es nur noch stagniert (oder sinkt)
 #     This behavior deviates a bit from the typical behavior, where the test accuracy would decrease again at a certain point. -> irgendwann würde er sinken
-#     Das ist weil die Iris Datensätze sehr klein sind -> Test und Train sehr klein -> Deshalb sieht man nicht das stabile Kurvenverhalten
-#     Das Verhältnis von Training/Dataset und deren Random Choice Verteilung (stratify) beeinflusst ebenfalls die Testaccuracy-Ergebnisse (nicht-stabil)
+#     Das ist weil der Iris Datensatz sehr klein sind -> Test und Train sehr klein -> Deshalb sieht man nicht das typisch stabile Kurvenverhalten
+#     Das Verhältnis von Training/Dataset und deren Random Choice Verteilung (random_state/stratify) beeinflusst ebenfalls die Test Accuracy-Ergebnisse (nicht-stabil)
 #
 # Note:
-#   - Regarding test accuracy all models from depth=4 on are equally good. -> Alle Modelle ab Depth 4 aufwärts sind gleich ugt
+#   - Regarding test accuracy all models from depth=4 on are equally good. -> Alle Modelle ab Depth 4 aufwärts sind gleich gut
 #     Yet, we rather choose the simpler model, since it is easier to interpret. -> Wir nehmen einfach das einfachere Modell (weniger Split = weniger Komplex)
 #   - In reality, we would do more tests with different random choices in the train/test split. -> Man würde Random Choices auch ändern in der Realität (Zufallsverteilung)!
-# -> Also eine anderer Random-State-Wert
+# -> Also einen anderen Random-State-Wert
 #     We will discuss this later under the headline of "cross-validation".
 
 
@@ -255,6 +254,6 @@ tree.plot_tree(best_model,
           proportion=True);
 plt.show()
 
-# Anzahl Tiefe = Anzahl Edges vom Root zum tiefsten Blatt
+# Anzahl Tiefe = Anzahl Edges vom Root zum tiefsten Blatt (inkl. Testcondition vom Root-Node)
 
 

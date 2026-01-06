@@ -37,6 +37,8 @@ num_data_34.hist(bins=3, figsize=(10,8))
 plt.tight_layout()
 plt.show()
 
+num_data_34.describe()
+
 
 
 ##### Equal Width Binning #####

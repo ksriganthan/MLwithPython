@@ -54,7 +54,7 @@ print("The best model has been trained on the entire data set.")
 # - A classification tree is an eager learner (model-based learner).
 # - This means that the training step (the "fit" step) involves building the tree structure based on the data.
 # - The tree structure is sufficient to make predictions on new data points using the predict method.
-#   The training data and the DecisionTreeClassifier algorithm is not needed any more after the tree has been built.
+#   The training data and the DecisionTreeClassifier algorithm are not needed any more after the tree has been built.
 
 
 ################ Visualize the best Classification Tree model (just for illustration)

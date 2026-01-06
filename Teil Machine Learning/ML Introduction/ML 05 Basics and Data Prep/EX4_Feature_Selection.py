@@ -20,7 +20,7 @@ X.shape # (100, 60)
 
 ##### Wir benutzen das Univariate Algorithmus mit der Filter-Methode #####
 
-# Filter Methode benutzt eine Quality-Metrix Q, welche abhängig vom Lernalgorithmus ist
+# Filter Methode benutzt eine Quality-Metrix Q, welche unabhängig vom Lernalgorithmus ist
 # Univariater Ansatz bewertet die Features einzeln mit Q und wählt die k-besten Features mit der höchsten
 # Q aus
 
