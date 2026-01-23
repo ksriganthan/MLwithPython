@@ -75,14 +75,11 @@ print(f"Best max_depth for Decision Tree: {best_depth} with Test Recognition Rat
 knn_best = KNeighborsClassifier(n_neighbors=best_k)
 knn_best_model = knn_best.fit(X_train, y_train)
 R_knn_val = knn_best_model.score(X_val, y_val)
-print(f"Validation Recognition Rate for best k-NN (k={best_k}): {R_knn_val * 100:.1f}%")
-
 # Best Decision Tree
-tree_best = DecisionTreeClassifier(max_depth=best_depth, random_state=23)
+tree_best = DecisionTreeClassifier(max_depth=best_depth,
+                                   random_state=23)
 tree_best_model = tree_best.fit(X_train, y_train)
 R_tree_val = tree_best_model.score(X_val, y_val)
-print(f"Validation Recognition Rate for best Decision Tree (max_depth={best_depth}): {R_tree_val * 100:.1f}%")
-
 # Overall best model
 if R_knn_val > R_tree_val:
     print(f"The best model is k-NN with k={best_k} achieving a Validation Recognition Rate of {R_knn_val * 100:.1f}%")

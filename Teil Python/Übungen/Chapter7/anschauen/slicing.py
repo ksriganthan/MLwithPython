@@ -21,4 +21,4 @@ print(s[-4:0:-2]) # ee
 # Standard-Inkrement = 1
 # Stop ist exklusiv
 # Bei negativ Index: die letzte Buchstabe ist -1
-print(s[-2::6])
+print(s[-2::6]) #k

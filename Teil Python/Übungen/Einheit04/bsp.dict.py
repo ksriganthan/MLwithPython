@@ -22,8 +22,8 @@ def print_table(dicti):
     my_dict_sorted = dict(sorted(dicti.items()))
     print("Number\tFrequency")
     print("-----------------")
-    for number,frequency in my_dict_sorted.items():
-        print(f"{number}\t\t{frequency}")
+    for i, (number,frequency) in enumerate(my_dict_sorted.items()):
+        print(f" Index Number:{i}\t\t{number}\t\t{frequency}")
 
 if __name__ == "__main__":
     my_list = create_numbers()

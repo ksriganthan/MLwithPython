@@ -8,7 +8,7 @@ def main():
     while line != "":
         line = line.rstrip()
         print(str(counter) + ": " + line)
-        counter = counter +1
+        counter = counter++1
         line = file_object.readline()
     file_object.close()
 

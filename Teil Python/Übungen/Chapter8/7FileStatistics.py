@@ -18,6 +18,7 @@ with open("text.txt", "r") as file:
     dict_ = {}
     dict_["UpperCase"] = upperCase
     dict_["LowerCase"] = LowerCase
+    print(dict_.get("LowerCase"))
     dict_["Digit"] = digit
     dict_["Space"] = space
 

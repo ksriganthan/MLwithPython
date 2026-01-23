@@ -18,7 +18,7 @@ def main():
     correct = 0
     false = 0
     while answer != "STOP":
-        randomZahl = randint(0, len(laender_und_hauptstaedte))
+        randomZahl = randint(0, len(laender_und_hauptstaedte) -1)
         randomLand = list(laender_und_hauptstaedte.keys())[randomZahl]
         answer = input("Was ist die Hauptstadt von " + randomLand + ": \n")
 

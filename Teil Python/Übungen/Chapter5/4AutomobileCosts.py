@@ -11,3 +11,4 @@ def autoMobileCosts(*strings): #Bedeutet mehrere Strings
     print(f"The monthly costs are: {monthlyInput:.2f}\nThe yearly costs are: {yearlyInput:.2f}")
 
 autoMobileCosts(*parts)
+print(type(parts))

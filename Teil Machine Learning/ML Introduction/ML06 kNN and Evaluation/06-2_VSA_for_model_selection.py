@@ -129,10 +129,10 @@ R_w = knn_model_w.score(X_test, y_test)                           # 4. Evaluate
 print(f"Test Recognition Rate in test set for k={knn_model_w.n_neighbors} (weighted): {R_w * 100:.1f}%") # 74.0%
 
 R_wT = knn_model_w.score(X_train, y_train)
-print(f"Test Recognition Rate in training set for k={knn_model_w.n_neighbors} (weighted): {R_wT * 100:.1f}%") # 100.0% -> Overfitting
+print(f"Train Recognition Rate in training set for k={knn_model_w.n_neighbors} (weighted): {R_wT * 100:.1f}%") # 100.0% -> Overfitting
 # Which model performs better on the test set - the unweighted or the weighted k-NN Classifier?
 # Bei Test Set ist Weighted leicht besser, jedoch im Training Set ist Accuracy bei Weighted bei 100%. Es gibt ein sehr grosser Gap
-# Zwischen Training und Set, deshalb kann man nicht sage, dass Weighted besser ist und dazukommt noch, dass wir nicht wissen welche
+# Zwischen Training und Set, deshalb kann man nicht sagen, dass Weighted besser ist und dazukommt noch, dass wir nicht wissen welche
 # k die Beste ist
 # Ausserdem generalisiert Unweighted Neighbour bei k = 9 besser als Weighted Neighbour
 # Todo Mit Gwen anschauen

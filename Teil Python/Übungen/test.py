@@ -17,4 +17,7 @@ else:
 
 person = dict(name="Alice", age=30, city="New York")
 
+if 6 != 5:
+    print(7)
+
 

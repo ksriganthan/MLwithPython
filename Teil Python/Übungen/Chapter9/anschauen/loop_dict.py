@@ -5,6 +5,7 @@ person = {"David": 12, "John": 8, "Jill": 7}
 # Printing keys
 for name in person.keys(): #person() geht auch -> ist per Default!
     print(f'Name: {name}')
+    print(person.get(name))  # Alternative to person[name]
 
 # Printing values
 for age in person.values():

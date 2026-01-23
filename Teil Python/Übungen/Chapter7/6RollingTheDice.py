@@ -1,8 +1,5 @@
 from random import randint
 
-
-
-
 def main():
     numOfDicing = int(input("Enter how many times the dice should be rolled: "))
     myList = []

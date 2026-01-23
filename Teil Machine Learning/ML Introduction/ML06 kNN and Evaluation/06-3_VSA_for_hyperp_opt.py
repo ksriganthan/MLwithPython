@@ -37,7 +37,7 @@ for i in range(1,309):
     knn_model_uw = knn_uw.fit(X_train, y_train)         # 2. Fit
     y_pred_uw = knn_model_uw.predict(X_test)            # 3. Predict
     R_uw = knn_model_uw.score(X_test, y_test)           # 4. Evaluate
-    # print(f"Test Recognition Rate in test set for k={knn_model_uw.n_neighbors} (unweighted): {R_uw * 100:.1f}%") #73.7%
+    print(f"Test Recognition Rate in test set for k={knn_model_uw.n_neighbors} (unweighted): {R_uw * 100:.1f}%") #73.7%
     my_dict[i] = format(R_uw *100,".1f")
 
 df = pd.DataFrame.from_dict(my_dict, orient='index', columns=['Recognition Rate'])

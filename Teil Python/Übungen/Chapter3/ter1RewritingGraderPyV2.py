@@ -17,12 +17,6 @@ grade = ""
 #case 90 if score >= 90 ...
 
 match score:
-    case 90:
-        grade = grade + " " + str(A_score)
-    case 80:
-        grade = grade + " " + str(B_score)
-    case 70:
-        grade = grade + " " + str(C_score)
     case 60:
         grade = grade + " " + str(D_score)
     case _:

@@ -18,7 +18,7 @@ from sklearn.neighbors import KNeighborsClassifier # KNN-Algorithmus
 #       We import the diabetes dataset.
 #       It holds data on diabetes tests. Our goal is to predict the column 'Outcome'.
 #       Since 'diabetes' is a csv file, we can use read_csv() from pandas to load it as a data frame.
-diabetes = pd.read_csv('./Teil Machine Learning/Data/diabetes.csv') # Use this line if you run the code cell by cell.
+diabetes = pd.read_csv('./Teil Machine Learning/Data/diabetes.csv', sep=',') # Use this line if you run the code cell by cell.
 # diabetes = pd.read_csv('../Data/diabetes.csv') # Use this line if you run the whole module using the Run button
 
 #       We want to use the KNeighborsClassifier algorithm from scikit-lkearn for classification.
@@ -31,7 +31,7 @@ y = diabetes['Outcome'] # Speichert die Target Value als Series
 y = y.values # KNeighborsClassifier erwartet eine numpy.array (mit .values von DF direkt zu np.array)
 
 #       Double-check the data types of X and y:
-type(X) # pandas.core.frame.DataFrame -> X die Matix ist DF
+type(X) # pandas.core.frame.DataFrame -> X die Matrix ist DF
 type(y) # numpy.ndarray -> y der Vektor ist np.array
 
 
@@ -70,10 +70,11 @@ knn_model = knn.fit(X, y) # We take the instance of the kNN algorithm from step 
 #       - Thus, when we look into the model object 'knn_model', we see that the data and the algorithm are stored in it:
 #           - '_fit_X' is an attribute of the model object 'knn_model'. It stores the input features of the data sample:
 print(knn_model._fit_X)
-#           - '_y          ' is an attribute of the model object 'knn_model'. It stores the target values of the data sample:
+#           - '_y' is an attribute of the model object 'knn_model'. It stores the target values of the data sample:
 print(knn_model._y) # ACHTUNG: Hier ist die Spalte als eine Zeile dargestellt -> numpy-array
 #           - 'n_neighbors' is an attribute of the model object 'knn_model'. It stores the number of neighbours used to
 #                           make the majority vote for prediction. This is the parameter we chose in the initialization step:
+print(knn_model._y.shape) # (768,) -> 768 Zeilen
 print(knn_model.n_neighbors) # 9 -> vorheriger Hyperparameter
 #   - Thus, when we "learn a model" with the kNN algorithm, we actually don't learn anything. We only store the sample data
 #     and the decision rule in an object that we call "the model object".
@@ -96,7 +97,7 @@ new_patient = pd.DataFrame(new_patient, columns=X.columns) # Convert the array t
 new_patient_pred = knn_model.predict(new_patient) # To do that, we can use the method .predict().
 print(f"Predicted class value for the new patient (k={knn_model.n_neighbors}): {new_patient_pred}") # Remark: Using "f-strings" for formatted printing here.
 #       The predicted class value is 0, which means that the model predicts that the new patient does not have diabetes.
-
+print(new_patient_pred.shape) # (1,) -> Ein Wert vorhergesagt
 ################  06 EXERCISE 1: UNWEIGHTED k-NN
 #   - Repeat the above steps (initialize-fit-predict) for a few different values of k, e.g. k=1, k=3, k=5, k=7, k=9, k=11
 #     Remember that you can specify k in the initialization step by setting the parameter n_neighbors.
@@ -153,8 +154,7 @@ print(f"Predicted class value for the new patient (k={knn_w_model.n_neighbors}, 
 #   - Can you decide on this basis whether you should use unweighted or weighted k-NN?
 
 result = {}
-
-for i in range(1,100):
+for i in range(1, 100):
     knn_w = KNeighborsClassifier(n_neighbors=i, weights='distance')
     knn_w_model = knn_w.fit(X, y)
     knn_w_model._fit_X

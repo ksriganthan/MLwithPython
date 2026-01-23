@@ -39,7 +39,7 @@ y = y.values # Convert the target to a numpy array
 
 knn = KNeighborsClassifier(n_neighbors=9)  # Initialize
 scores = cross_val_score(knn, X, y, cv=5, scoring='accuracy')  # 5-fold CV on the entire data set
-mean_score = np.mean(scores)  # calculate mean accuracy across the folds -> CV Average Test Error Rate
+mean_score = np.mean(scores)  # calculate mean accuracy across the folds -> CV Average Test Accuracy Rate
 print(f"Cross-Validation Recognition Rate for k=9: {mean_score * 100:.1f}%")
 
 ################ Train the model on the entire data set

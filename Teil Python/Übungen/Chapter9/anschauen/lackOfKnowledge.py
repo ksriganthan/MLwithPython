@@ -20,7 +20,6 @@ club = ["Barcelona", "Real Madrid", "Barcelona", "Chelsea", "Juventus"]
 # The zip() function returns a zip object, which is an iterator of tuples
 dict_using_comp = {key: value for (key,value) in zip(player,club)}
 print(dict_using_comp) #Type: Dictionary
-
 # Shorter Alternative:
 dict_using_comp = zip(player, club)
 print(type(dict_using_comp)) #Type: Zip

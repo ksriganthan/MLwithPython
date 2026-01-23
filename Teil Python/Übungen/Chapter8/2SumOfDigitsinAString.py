@@ -1,4 +1,3 @@
-
 num = input("Enter a series of single-digit numbers with nothing separating them: ")
 
 _sum = 0

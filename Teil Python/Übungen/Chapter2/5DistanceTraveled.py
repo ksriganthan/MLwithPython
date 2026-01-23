@@ -8,3 +8,5 @@ print(f"The distance in {hours} is {speed * hours}")
 
 
 
+
+

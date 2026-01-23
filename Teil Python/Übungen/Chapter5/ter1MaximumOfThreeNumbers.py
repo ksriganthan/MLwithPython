@@ -9,7 +9,7 @@ def max(nums):
     index = 0
     highestValue = -1
 
-    for i in range(0,len(nums)):
+    for i in range(0,len(nums),1):
         if nums[i] > highestValue:
             index = i
             highestValue = nums[i]

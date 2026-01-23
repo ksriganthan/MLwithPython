@@ -4,7 +4,7 @@ def main():
     # File handling -> with ist hier der Context-Handler
     with open(input_name,"r") as input_file:
         text = input_file.read()
-        words = text.split()
+        words = text.split() #Eine Liste mit Wörtern
 
         unique_words = set(words) #Case-sensitive!
 

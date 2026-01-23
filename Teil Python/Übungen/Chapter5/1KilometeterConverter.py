@@ -7,4 +7,5 @@ def kilometerConverter(kilometer):
 miles = kilometerConverter(distanceInKilometer)
 
 print(f"The kilometer {distanceInKilometer} are {miles:.2f} miles")
+print(format(distanceInKilometer, ".2f"))
 
