@@ -361,7 +361,7 @@ pip install -r requirements.txt
 # Einzelne Scripts ausführen
 python "Teil Machine Learning/ML Introduction/ML06 kNN and Evaluation/06-1_kNN.py"
 
-# Jupyter Notebooks (falls vorhanden)
+# Jupyter Notebooks
 jupyter notebook "Teil Python/Übungen/matplotlib/plt_examples/plt_examples.ipynb"
 ```
 
@@ -438,17 +438,6 @@ pip install pandas numpy scikit-learn matplotlib scipy sympy deep-translator
 
 ---
 
-## 📈 Weiterführende Themen
-
-In zukünftigen Versionen geplant:
-- Logistische Regression
-- Support Vector Machines (SVM)
-- Random Forests und Ensemble Methods
-- k-Means Clustering
-- Principal Component Analysis (PCA)
-- Deep Learning mit TensorFlow/PyTorch
-
----
 
 ## 👨‍💻 Autor
 
@@ -459,6 +448,6 @@ FHNW - Business Analytics / Machine Learning with Python
 
 ## 📝 Lizenz
 
-Dieses Projekt dient ausschließlich zu Lernzwecken im Rahmen meines Studiums an der FHNW.
+Dieses Projekt dient ausschliesslich zu Lernzwecken im Rahmen meines Studiums an der FHNW.
 
 ---
