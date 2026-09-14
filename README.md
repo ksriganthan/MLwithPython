@@ -1,12 +1,14 @@
-# Machine Learning with Python 🤖🐍 (Deutsch)
+# Machine Learning with Python (Deutsch)
 
-Ein umfassendes Repository zur strukturierten Erlernung von **Python-Grundlagen** und **Machine-Learning-Methoden** im Rahmen des Moduls *Business Analytics / Machine Learning with Python* (FHNW).
+🇬🇧 **English version:** [Machine Learning with Python (English)](#machine-learning-with-python-english)
+
+Ein umfassendes Repository zum strukturierten Erlernen von **Python-Grundlagen** und **Machine-Learning-Methoden** im Rahmen des Moduls *Business Analytics / Machine Learning with Python* (FHNW).
 
 Der Fokus liegt auf **Verständnis, sauberer Umsetzung und praktischer Anwendung** zentraler ML-Konzepte – nicht auf Black-Box-Nutzung von Frameworks.
 
 ---
 
-## 📋 Inhaltsverzeichnis
+## Inhaltsverzeichnis
 
 - [Über das Projekt](#über-das-projekt)
 - [Python-Grundlagen](#python-grundlagen)
@@ -22,21 +24,21 @@ Der Fokus liegt auf **Verständnis, sauberer Umsetzung und praktischer Anwendung
 
 ---
 
-## 🎯 Über das Projekt
+## Über das Projekt
 
-Dieses Repository dokumentiert meine Lernreise durch Python und Machine Learning. Es enthält praktische Implementierungen von ML-Algorithmen, Datenanalyse-Techniken und Python-Programmierübungen. Alle Konzepte werden von Grund auf verstanden und implementiert, nicht nur als fertige Bibliotheksfunktionen verwendet.
+Dieses Repository dokumentiert meine Lernreise durch Python und Machine Learning. Es enthält praktische Implementierungen von ML-Algorithmen, Datenanalyse-Techniken und Python-Programmierübungen. Alle Konzepte werden nachvollzogen und bewusst angewendet: Verfahren, Hyperparameter und Bewertungsmethoden werden erklärt, statt Bibliotheksfunktionen als Black Box zu benutzen.
 
 ### Warum Python für Machine Learning?
 
-Python ist die führende Sprache im Data Science- und ML-Bereich aufgrund von:
+Python ist die führende Sprache im Data-Science- und ML-Bereich. Die Gründe:
 - **Einfacher Syntax**: Leicht zu erlernen und zu lesen
 - **Umfangreiche Bibliotheken**: NumPy, pandas, scikit-learn, matplotlib
-- **Große Community**: Viele Ressourcen und Support
+- **Grosse Community**: Viele Ressourcen und Support
 - **Vielseitigkeit**: Von Datenanalyse bis Produktionsumgebungen
 
 ---
 
-## 🐍 Python-Grundlagen
+## Python-Grundlagen
 
 ### Teil Python - Wochenweise Organisation
 
@@ -74,8 +76,8 @@ Umfangreiche Übungen zu:
 person = dict(name="Alice", age=30, city="New York")
 
 # Set: unordered, unique elements
-sett = {"Kapi", "Sushana", "Karim", "Loic", "Nuria"}
-sorted_list = sorted(sett)
+namen = {"Kapi", "Sushana", "Karim", "Loic", "Nuria"}
+sorted_list = sorted(namen)
 
 # Tuple: immutable, für unveränderliche Daten
 gps_coordinates = (47.5596, 7.5886)  # Basel
@@ -84,7 +86,7 @@ rgb_color = (255, 128, 0)  # Orange
 
 ---
 
-## 🤖 Machine Learning
+## Machine Learning
 
 ### Supervised Learning
 
@@ -155,7 +157,7 @@ tree.plot_tree(model_pruned,
 
 #### 3. **Artificial Neural Networks (ANN)**
 
-**Konzept**: Multi-Layer Perceptron mit Hidden Layers für komplexe Mustererkennnung.
+**Konzept**: Multi-Layer Perceptron mit Hidden Layers für komplexe Mustererkennung.
 
 **Implementierung**:
 - `08-1_ANN.py`: Neuronale Netze mit verschiedenen Architekturen
@@ -272,7 +274,8 @@ X_train, X_test, y_train, y_test = train_test_split(
    - k-NN und Decision Tree optimieren und vergleichen
 
 ```python
-from sklearn.model_selection import cross_val_score, KFold
+from sklearn.model_selection import cross_val_score
+import numpy as np
 
 # 5-Fold Cross-Validation
 knn = KNeighborsClassifier(n_neighbors=9)
@@ -280,7 +283,7 @@ scores = cross_val_score(knn, X, y, cv=5, scoring='accuracy')
 mean_score = np.mean(scores)
 
 # Hyperparameter Optimization mit CV
-k_values = [1, 5, 13, 61, 121, 201, 308]
+k_values = [1, 5, 13, 61, 121, 201, 307]  # nur ungerade Werte, damit keine Stimmengleichheit entsteht
 cv_results = []
 for k in k_values:
     knn = KNeighborsClassifier(n_neighbors=k)
@@ -297,7 +300,7 @@ best_k = k_values[cv_results.index(max(cv_results))]
 
 ---
 
-## 📁 Projektstruktur
+## Projektstruktur
 
 ```
 MLwithPython/
@@ -305,8 +308,8 @@ MLwithPython/
 │   ├── Woche01/              # Python Basics
 │   ├── Woche03/              # Datenstrukturen
 │   ├── Übungen/              # Praktische Übungen
-│   │   ├── Chapter6-9/       # File I/O, String-Verarbeitung
-│   │   └── matplotlib/       # Datenvisualisierung
+│   │   ├── Chapter6-9/       # File I/O, Datenmanipulation
+│   │   └── matplotlib/       # Datenvisualisierung, u. a. plt_examples/plt_examples.ipynb
 │   └── examPreparation/      # Prüfungsvorbereitung
 │
 ├── Teil Machine Learning/
@@ -333,11 +336,11 @@ MLwithPython/
 
 ---
 
-## 🛠️ Installation & Verwendung
+## Installation & Verwendung
 
 ### Voraussetzungen
 
-- Python 3.8+
+- Python 3.10 oder neuer
 - pip (Python Package Manager)
 
 ### Installation
@@ -367,7 +370,7 @@ jupyter notebook "Teil Python/Übungen/matplotlib/plt_examples/plt_examples.ipyn
 
 ---
 
-## 📚 Verwendete Bibliotheken
+## Verwendete Bibliotheken
 
 ### Core ML & Data Science
 - **pandas** (2.x): Datenmanipulation und -analyse
@@ -388,7 +391,7 @@ pip install pandas numpy scikit-learn matplotlib scipy sympy deep-translator
 
 ---
 
-## 📊 Datensätze
+## Datensätze
 
 ### 1. **Diabetes Dataset**
 - **Quelle**: `Teil Machine Learning/Data/diabetes.csv`
@@ -413,7 +416,7 @@ pip install pandas numpy scikit-learn matplotlib scipy sympy deep-translator
 
 ---
 
-## 🎓 Lernziele
+## Lernziele
 
 ### Python-Kenntnisse
 ✅ Datentypen und Datenstrukturen (Lists, Tuples, Sets, Dictionaries)  
@@ -426,9 +429,9 @@ pip install pandas numpy scikit-learn matplotlib scipy sympy deep-translator
 ✅ **Supervised Learning**: k-NN, Decision Trees, Neural Networks  
 ✅ **Unsupervised Learning**: Hierarchical Clustering  
 ✅ **Model Evaluation**: Train/Test Split, Cross-Validation  
-✅ **Hyperparameter Optimization**: Grid Search, k-Fold CV  
+✅ **Hyperparameter Optimization**: manuelle Parametersuche über k-Fold-CV  
 ✅ **Overfitting**: Erkennung und Vermeidung (Pruning, Validation)  
-✅ **Bias-Variance Tradeoff**: Komplexität vs. Generalisierung  
+✅ **Bias-Variance Tradeoff**: am Vergleich von ungeprunetem und gepruntem Baum gezeigt  
 
 ### Praktische Fähigkeiten
 ✅ Scikit-learn Workflow: Initialize-Fit-Predict  
@@ -439,20 +442,20 @@ pip install pandas numpy scikit-learn matplotlib scipy sympy deep-translator
 ---
 
 
-## 👨‍💻 Autor
+## Autor
 
 **Kapischan Sriganthan**  
 
 ---
 
-## 📝 Lizenz
+## Lizenz
 
-Dieses Projekt dient ausschliesslich zu Lernzwecken im Rahmen meines Studiums an der FHNW.
+Dieses Repository dient ausschliesslich Lernzwecken im Rahmen meines Studiums an der FHNW. Es steht unter keiner Open-Source-Lizenz.
 
 ---
 
 
-# Machine Learning with Python 🤖🐍 (English)
+## Machine Learning with Python (English)
 
 A comprehensive repository for structured learning of **Python fundamentals** and **Machine Learning methods** as part of the *Business Analytics / Machine Learning with Python* course (FHNW).
 
@@ -460,14 +463,14 @@ The focus is on **understanding, clean implementation, and practical application
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [About the Project](#about-the-project)
 - [Python Fundamentals](#python-fundamentals)
-- [Machine Learning](#machine-learning)
-  - [Supervised Learning](#supervised-learning)
-  - [Unsupervised Learning](#unsupervised-learning)
-  - [Model Evaluation](#model-evaluation)
+- [Machine Learning](#machine-learning-1)
+  - [Supervised Learning](#supervised-learning-1)
+  - [Unsupervised Learning](#unsupervised-learning-1)
+  - [Model Evaluation](#model-evaluation-1)
 - [Project Structure](#project-structure)
 - [Installation & Usage](#installation--usage)
 - [Used Libraries](#used-libraries)
@@ -476,9 +479,9 @@ The focus is on **understanding, clean implementation, and practical application
 
 ---
 
-## 🎯 About the Project
+## About the Project
 
-This repository documents my learning journey through Python and Machine Learning. It contains practical implementations of ML algorithms, data analysis techniques, and Python programming exercises. All concepts are understood and implemented from the ground up, not just used as ready-made library functions.
+This repository documents my learning journey through Python and Machine Learning. It contains practical implementations of ML algorithms, data analysis techniques, and Python programming exercises. All concepts are worked through and applied deliberately: algorithms, hyperparameters and evaluation methods are explained rather than used as a black box.
 
 ### Why Python for Machine Learning?
 
@@ -490,7 +493,7 @@ Python is the leading language in the Data Science and ML field due to:
 
 ---
 
-## 🐍 Python Fundamentals
+## Python Fundamentals
 
 ### Python Part - Weekly Organization
 
@@ -528,8 +531,8 @@ Extensive exercises on:
 person = dict(name="Alice", age=30, city="New York")
 
 # Set: unordered, unique elements
-sett = {"Kapi", "Sushana", "Karim", "Loic", "Nuria"}
-sorted_list = sorted(sett)
+namen = {"Kapi", "Sushana", "Karim", "Loic", "Nuria"}
+sorted_list = sorted(namen)
 
 # Tuple: immutable, for unchangeable data
 gps_coordinates = (47.5596, 7.5886)  # Basel
@@ -538,7 +541,7 @@ rgb_color = (255, 128, 0)  # Orange
 
 ---
 
-## 🤖 Machine Learning
+## Machine Learning
 
 ### Supervised Learning
 
@@ -726,7 +729,8 @@ X_train, X_test, y_train, y_test = train_test_split(
    - Optimize and compare k-NN and Decision Tree
 
 ```python
-from sklearn.model_selection import cross_val_score, KFold
+from sklearn.model_selection import cross_val_score
+import numpy as np
 
 # 5-Fold Cross-Validation
 knn = KNeighborsClassifier(n_neighbors=9)
@@ -734,7 +738,7 @@ scores = cross_val_score(knn, X, y, cv=5, scoring='accuracy')
 mean_score = np.mean(scores)
 
 # Hyperparameter Optimization with CV
-k_values = [1, 5, 13, 61, 121, 201, 308]
+k_values = [1, 5, 13, 61, 121, 201, 307]  # odd values only, so that no tie can occur
 cv_results = []
 for k in k_values:
     knn = KNeighborsClassifier(n_neighbors=k)
@@ -751,7 +755,7 @@ best_k = k_values[cv_results.index(max(cv_results))]
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 MLwithPython/
@@ -759,8 +763,8 @@ MLwithPython/
 │   ├── Woche01/              # Python Basics
 │   ├── Woche03/              # Data Structures
 │   ├── Übungen/              # Practical Exercises
-│   │   ├── Chapter6-9/       # File I/O, String Processing
-│   │   └── matplotlib/       # Data Visualization
+│   │   ├── Chapter6-9/       # File I/O, data manipulation
+│   │   └── matplotlib/       # Data visualization, incl. plt_examples/plt_examples.ipynb
 │   └── examPreparation/      # Exam Preparation
 │
 ├── Teil Machine Learning/
@@ -787,11 +791,11 @@ MLwithPython/
 
 ---
 
-## 🛠️ Installation & Usage
+## Installation & Usage
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.10 or newer
 - pip (Python Package Manager)
 
 ### Installation
@@ -821,7 +825,7 @@ jupyter notebook "Teil Python/Übungen/matplotlib/plt_examples/plt_examples.ipyn
 
 ---
 
-## 📚 Used Libraries
+## Used Libraries
 
 ### Core ML & Data Science
 - **pandas** (2.x): Data manipulation and analysis
@@ -842,7 +846,7 @@ pip install pandas numpy scikit-learn matplotlib scipy sympy deep-translator
 
 ---
 
-## 📊 Datasets
+## Datasets
 
 ### 1. **Diabetes Dataset**
 - **Source**: `Teil Machine Learning/Data/diabetes.csv`
@@ -867,7 +871,7 @@ pip install pandas numpy scikit-learn matplotlib scipy sympy deep-translator
 
 ---
 
-## 🎓 Learning Objectives
+## Learning Objectives
 
 ### Python Skills
 ✅ Data types and data structures (Lists, Tuples, Sets, Dictionaries)  
@@ -880,9 +884,9 @@ pip install pandas numpy scikit-learn matplotlib scipy sympy deep-translator
 ✅ **Supervised Learning**: k-NN, Decision Trees, Neural Networks  
 ✅ **Unsupervised Learning**: Hierarchical Clustering  
 ✅ **Model Evaluation**: Train/Test Split, Cross-Validation  
-✅ **Hyperparameter Optimization**: Grid Search, k-Fold CV  
+✅ **Hyperparameter Optimization**: manual parameter search with k-fold CV  
 ✅ **Overfitting**: Detection and prevention (Pruning, Validation)  
-✅ **Bias-Variance Tradeoff**: Complexity vs. Generalization  
+✅ **Bias-Variance Tradeoff**: shown by comparing an unpruned and a pruned tree  
 
 ### Practical Skills
 ✅ Scikit-learn Workflow: Initialize-Fit-Predict  
@@ -893,14 +897,14 @@ pip install pandas numpy scikit-learn matplotlib scipy sympy deep-translator
 ---
 
 
-## 👨‍💻 Author
+## Author
 
 **Kapischan Sriganthan**  
 
 ---
 
-## 📝 License
+## License
 
-This project is for educational purposes only as part of my studies at FHNW.
+This repository is for educational purposes only as part of my studies at FHNW. It is not released under any open-source licence.
 
 ---
