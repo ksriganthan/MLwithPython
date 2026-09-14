@@ -3,6 +3,6 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.13 (MLwithPython)" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{}]]></component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.13 (MLwithPython)" project-jdk-type="Python SDK" />
+  <component name="KubernetesApiProvider">{}</component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.14" project-jdk-type="Python SDK" />
 </project>

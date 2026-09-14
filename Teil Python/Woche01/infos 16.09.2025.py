@@ -5,6 +5,8 @@
 # // floor division
 print(10 / 3)
 print(10 // 3)  # Rundet ab
+print(10 // 3)
+print(10 % 3)
 
 #Exercise 3-7
 # Get point for the tests and exam from the user.
